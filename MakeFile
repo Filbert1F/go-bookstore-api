@@ -1,0 +1,8 @@
+migration_up: 
+	migrate -path database/migration/ -database "postgresql://postgres:password@localhost:5432/echo_test_go?sslmode=disable" -verbose up
+
+migration_down: 
+	migrate -path database/migration/ -database "postgresql://postgres:password@localhost:5432/echo_test_go?sslmode=disable" -verbose down
+
+migration_fix: 
+	migrate -path database/migration/ -database "postgresql://postgres:password@localhost:5432/echo_test_go?sslmode=disable" force 000001
