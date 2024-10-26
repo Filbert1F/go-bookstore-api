@@ -72,8 +72,9 @@ GET /books/{id}
 POST /books (protected)
 ```
 
+Request Body for POST /books
+
 ```json
-// Request Body for POST /books
 "name": "The Two Towers",
 "author": "John Ronald Reuel Tolkien",
 "year": 1954,
@@ -85,8 +86,9 @@ POST /books (protected)
 PUT /books/{id} (protected)
 ```
 
+Request Body for PUT /books/{id}
+
 ```json
-// Request Body for PUT /books/{id}
 "name": "The Two Towers Edited",
 "author": "John Ronald Reuel Tolkien Edited",
 "year": 1888,
@@ -104,8 +106,9 @@ DELETE /books/{id} (protected)
 POST /login
 ```
 
+Request Body for POST /login
+
 ```json
-// Request Body for POST /login
 "email": "avery.brown@gmail.com",
 "password": "avery123"
 ```
@@ -114,8 +117,9 @@ POST /login
 POST /register
 ```
 
+Request Body for POST /register
+
 ```json
-// Request Body for POST /register
 "email": "homersimpson@gmail.com",
 "username": "homersimpson",
 "password": "homersimpson"
@@ -131,8 +135,9 @@ GET /user/books (protected)
 POST /user/books (protected)
 ```
 
+Request Body for POST /user/books
+
 ```json
-// Request Body for POST /user/books
 "id": "a746a611-314a-41e9-a7c2-788c2f187511"
 ```
 
