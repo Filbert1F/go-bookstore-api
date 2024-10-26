@@ -1,8 +1,23 @@
-migration_up: 
-	migrate -path database/migration/ -database "postgresql://postgres:password@localhost:5432/echo_test_go?sslmode=disable" -verbose up
+include .env
 
-migration_down: 
-	migrate -path database/migration/ -database "postgresql://postgres:password@localhost:5432/echo_test_go?sslmode=disable" -verbose down
+DB_URL := postgresql://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?sslmode=$(DB_SSL_MODE)
 
-migration_fix: 
-	migrate -path database/migration/ -database "postgresql://postgres:password@localhost:5432/echo_test_go?sslmode=disable" force 000001
+migration_up:
+	migrate -path database/migration/ -database "$(DB_URL)" -verbose up
+
+migration_down:
+	migrate -path database/migration/ -database "$(DB_URL)" -verbose down
+
+migration_fix:
+	migrate -path database/migration/ -database "$(DB_URL)" force 000001
+
+print-db-url:
+	@echo "Database URL: $(DB_URL)"
+
+create_db:
+	go run scripts/db.go create
+
+drop_db:
+	go run scripts/db.go drop
+
+recreate_db: drop_db create_db migration_up
