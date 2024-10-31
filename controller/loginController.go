@@ -132,7 +132,7 @@ func RegistrationController(c echo.Context) error {
 		})
 	}
 
-	return c.JSON(http.StatusCreated, map[string]interface{}{
+	return c.JSON(http.StatusOK, map[string]interface{}{
 		"user":  user,
 		"token": token,
 	})
